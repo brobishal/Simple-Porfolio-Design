@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+		integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		html {
+			background: #000;
+		}
+
+		/* .container{
+			width:100%;
+			height:100vh;
+			background:#f1f1f1;
+		} */
+
+		.main {
+			width: 100%;
+			height: 100%;
+			background: #f1f1f1;
+
+		}
+
+		/* header */
+
+		.header {
+			background: rgb(59, 57, 57);
+			width: 100%;
+			height: 10%;
+			font-size: 30px;
+			position: fixed;
+			z-index: 1;
+
+		}
+
+		.header h5 {
+			color: #fff;
+			margin-left: 20px;
+			margin-top: 15px;
+
+		}
+
+
+		/* sidebar */
+
+		.sidebar {
+			background: rgb(37, 37, 37);
+			height: 100%;
+			z-index: 1;
+			width: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 60px 0px;
+			overflow-x: hidden;
+			transition: width 0.5s;
+			position: fixed;
+
+		}
+
+		.sidebar ul {
+			padding: 20px 0px;
+		}
+
+
+		.sidebar ul li a {
+			color: #fff;
+			text-decoration: none;
+		}
+
+
+		.sidebar ul li {
+			padding: 10px;
+			margin: 10px;
+			width: 250px;
+			background: rgb(78, 74, 74);
+			border-radius: 20px;
+			text-align: center;
+			list-style: none;
+		}
+
+		.sidebar ul li:hover {
+			background: rgb(163, 157, 157);
+			cursor: pointer;
+		}
+
+		.sidebar img {
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			border: 2px solid #fff;
+		}
+
+		.sidebar h2 {
+			color: #fff;
+			text-align: center;
+			font-size: 24px;
+
+		}
+
+		/* for closed sidebar */
+
+		.sidebar h4 {
+			font-size: 24px;
+			color: #fff;
+			margin-top: 50px;
+			margin-left: 280px;
+			transform: translateY(-50px);
+
+		}
+
+
+		.sidebar p {
+			color: #fff;
+			text-align: center;
+			font-size: 15px;
+		}
+
+		.content {
+			height: 100%;
+			width: 70%;
+			/* display:flex;
+			justify-content:center;
+			flex-flow:column; */
+			float: right;
+			padding-left: 50px;
+			transform: translateY(250px);
+
+
+		}
+
+		.mysection {
+			width: 80%;
+		}
+
+		.mysection h2 {
+			color: #fff;
+			font-size: 20px;
+
+		}
+
+		.mysection h1 {
+			color: #fff;
+
+
+		}
+
+		.mysection h1 span {
+			color: #ebeb0d;
+
+		}
+
+		.mysection p {
+			color: #fff;
+			text-align: justify;
+			margin-top: 20px;
+
+
+		}
+
+		.mysection input[type="submit"] {
+			width: 10%;
+			height: 25px;
+			background: rgb(66, 64, 64);
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			color: #fff;
+			margin-top: 10px;
+		}
+
+		.mysection input[type="submit"]:hover {
+			background: #ebeb0d;
+			color: #000;
+		}
+
+		.about {
+			margin-top: 90px;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin: 30px 30px 30px 0px;
+
+		}
+
+		.nextpart h1 {
+			color: #fff;
+			margin-top: 120px;
+			text-align: center;
+
+			position: relative;
+
+		}
+
+
+		.nextpart h1::after {
+			content: "";
+			position: absolute;
+			border: 2px solid #ebeb0d;
+			width: 100px;
+			left: 380px;
+			bottom: -2px;
+
+
+		}
+
+		.nextpart h1 span {
+			color: #ebeb0d
+		}
+
+
+		.myinfo input[type="submit"] {
+			width: 140px;
+			height: 30px;
+			border-radius: 20px;
+			border: none;
+			background: rgb(63, 60, 60);
+			color: #fff;
+			margin: 20px 0px 0px 30px;
+
+
+		}
+
+		.myinfo input[type="submit"]:hover {
+			color: #ebeb0d;
+			background: rgb(93, 90, 90);
+
+		}
+
+
+		.about .myinfo ul {
+			margin-top: 10px;
+		}
+
+		.about .myinfo ul li {
+			color: #fff;
+			list-style: none;
+			padding: 2px;
+			margin: 0px 35px;
+
+
+		}
+
+
+		.about .myinfo ul li span {
+			color: #ebeb0d
+		}
+
+		.mybox .box1,
+		.box2,
+		.box3,
+		.box4 {
+			color: #fff;
+		}
+
+
+		.mybox {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+
+		}
+
+		.mybox .divfirst {
+			margin: 0px 10px;
+		}
+
+		.mybox .box1 {
+			width: 130px;
+			height: 80px;
+			background: rgb(49, 49, 49);
+			margin: 5px;
+			padding: 20px;
+
+		}
+
+		.mybox .box1 h4,
+		.box2 h4,
+		.box3 h4,
+		.box4 h4 {
+			font-size: 20px;
+
+
+		}
+
+		.mybox .box1 p,
+		.box2 p,
+		.box3 p,
+		.box4 p {
+			font-size: 15px;
+
+		}
+
+		.mybox .box2 {
+			width: 130px;
+			height: 80px;
+			background: rgb(49, 49, 49);
+			margin: 5px;
+			padding: 20px;
+
+
+		}
+
+		.mybox .box3 {
+			width: 130px;
+			height: 80px;
+			background: rgb(49, 49, 49);
+			margin: 5px;
+			padding: 20px;
+
+
+		}
+
+		.mybox .box4 {
+			width: 130px;
+			height: 80px;
+			background: rgb(49, 49, 49);
+			margin: 5px;
+			padding: 20px;
+
+
+		}
+
+		.mybox {
+			background: rgb(148, 148, 148);
+			padding: 30px;
+			box-shadow: 2px 1px 10px 2px #fff;
+
+		}
+
+		.myinfo {
+			background: rgb(148, 148, 148);
+			padding: 30px;
+			box-shadow: 2px 1px 10px 2px #fff;
+
+
+
+		}
+
+		.thirdpart {
+			margin-top: 200px;
+
+		}
+
+		.thirdpart h1 {
+			color: #fff;
+
+		}
+
+		.thirdpart h1 span {
+			color: #ebeb0d;
+		}
+
+		.thirdpart .mybox1 {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		/* .thirdpart .mybox1 .box1{
+			color:#fff;
+		} */
+
+		.thirdpart .mybox1 .boxpart .box1 {
+			padding: 20px 10px;
+			margin: 40px 20px;
+			border-left: 2px solid #fff;
+			color: #fff;
+
+		}
+
+		.thirdpart .mybox1 .boxpart .box1 span {
+			background: rgb(56, 55, 55);
+			padding: 3px 10px;
+			border-radius: 10px;
+		}
+
+		.thirdpart .mybox1 .boxpart .box1 h2 {
+			margin-top: 20px;
+		}
+
+		.thirdpart .mybox1 .boxpart .box1 p {
+			text-align: justify;
+		}
+
+		.portfolio {
+			width: 100%;
+		}
+
+		.myportfolio {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+		}
+
+		.myimg .mydiv img {
+			width: 200px;
+			height: 100px;
+			object-fit: cover;
+		}
+
+		.myimg .mydiv img:hover {
+			transform: scale(1.2);
+			transition: scale 0.10s;
+
+		}
+
+		.myimg .mydiv {
+			padding: 10px;
+			border-radius: 10px;
+		}
+
+
+		.portfolio {
+			margin-top: 100px;
+		}
+
+		.portfolio h1 {
+			color: #fff;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.portfolio h1 span {
+			color: #ebeb0d;
+		}
+
+
+
+		.contact {
+			margin-top: 100px;
+			width: 100%;
+			height: 100%;
+		}
+
+		.contact h1 {
+			color: #fff;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.contact h1 span {
+			color: #ebeb0d;
+		}
+
+		.mycontact {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.contact .mycontact .mycon ul li {
+			color: #fff;
+
+		}
+
+
+		.contact .mycontact .mycon h2 {
+			color: #fff;
+			margin: 50px 0px;
+
+		}
+
+
+		.mycon1 {
+			color: #fff;
+			margin-top: 100px;
+		}
+
+		/* .contact .mycontact .mycon1{
+			color:#fff;
+		} */
+		form {
+			color: #fff;
+		}
+		input[type="text"],
+		input[type="email"],
+		input[type="project"],
+		textarea {
+
+			width: 100%;
+			background: rgb(49, 49, 49);
+			height: 30px;
+			color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			padding: 10px;
+			margin: 10px 0px;
+
+		}
+
+		input[type="submit"] {
+
+			width: 20%;
+			background: rgb(82, 79, 79);
+			height: 30px;
+			color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			padding: 0px 10px;
+			margin: 10px 0px;
+
+		}
+
+		input[type="submit"]:hover {
+			background: rgb(42, 41, 41);
+			cursor: pointer;
+
+		}
+
+		/* media query 
+		
+		@media screen - screen for deskop,tablet and smartphones
+				@media all- all for all kind of device
+			
+				@media print - print for printers
+				@media speech - speech for screen readers
+				$media = this is default it means default it apply all (method types)
+				
+		
+		*/
+
+		/*
+		orientation:landscape
+		this means that if a device has larger width number than height than this rule work
+		orientation:portrait
+		this means that if a device has larger height than width than this rule applied 
+		*/
+
+		/* @media screen and (orientation:portrait){
+			.sidebar{
+				background:blue;
+				
+			}
+		} */
+
+		@media (max-width:1024px) and (min-width:768px) {
+			.sidebar ul li {
+				padding: 10px;
+				margin: 10px;
+				width: 200px;
+
+			}
+
+			.sidebar h4 {
+				font-size: 22px;
+				margin-top: 50px;
+				margin-left: 240px;
+				transform: translateY(-50px);
+
+			}
+
+		}
+
+		/*  */
+
+
+		@media (max-width:768px) and (min-width:480px) {
+			.sidebar ul li {
+				padding: 8px;
+				margin: 10px;
+				width: 115px;
+
+			}
+
+
+			.sidebar h4 {
+				font-size: 20px;
+				margin-top: 50px;
+				margin-left: 200px;
+				transform: translateY(-50px);
+
+			}
+
+		}
+
+		@media (max-width:480px) and (min-width:320px) {
+			.sidebar ul li {
+				padding: 7px;
+				margin: 10px;
+				width: 100%;
+
+			}
+
+
+			.sidebar h4 {
+				font-size: 16px;
+				margin-top: 50px;
+				margin-left: 90px;
+				transform: translateY(-50px);
+
+			}
+
+		}
+
+		@media (max-width:320px) {
+			.sidebar h4 {
+				font-size: 16px;
+				margin-top: 50px;
+				margin-left: 10px;
+				transform: translateY(-50px);
+
+			}
+
+
+		}
+	</style>
+</head>
+
+<div class="container">
+	<div class="main">
+		<!-- header -->
+		<div class="header">
+			<h5 onclick="openNav()"><i class="fas fa-bars"></i></h5>
+		</div>
+		<!-- header -->
+
+		<!-- sidebar -->
+		<div class="sidebar" id="mysidebar">
+			<h4 onclick="closeNav()"><i class="fas fa-times"></i></h4>
+
+			<img src="view.jpg">
+
+			<div>
+				<h2>Bishal Shrestha</h2>
+				<p>Front End Developer</p>
+			</div>
+			</p>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Education</a></li>
+				<li><a href="#">Portfoliyo</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</div>
+
+		<!-- content open -->
+		<div class="content">
+			<div class="mysection">
+				<h2>HI THERE !</h2>
+				<h1>I'M Bishal<span>Shrestha</span></h1>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing
+					t. Quisquam consectetur, voluptates laboriosam iusto ipsa iure, harum fugit, possimus omnis
+					accusamus eum repellat repellendus nulla nostrum obcaecati exercitationem? Eveniet, repudiandae
+					asperiores.
+				</p>
+				<input type="submit" name="submit" value="About Me">
+			</div>
+			<!-- section closed -->
+
+
+			<!-- for next content block about-->
+
+			<div class="nextpart">
+				<h1><span>About</span>Me</h1>
+				<hr />
+
+				<div class="about">
+					<div class="myinfo">
+						<ul>
+							<li>Name : <span>Bishal Shrestha</span></li>
+							<li>Age : <span>21</span></li>
+							<li>Qualification : <span>BCA</span></li>
+							<li>Post : <span>Front End Developer</span></li>
+							<li>Language : <span>Nepali</span></li>
+
+						</ul>
+						<input type="submit" name="submit" value="Download CV">
+					</div>
+
+					<!-- box part -->
+					<div class="mybox">
+						<div class="divfirst">
+							<div class="box1">
+								<h4>2+</h4>
+								<p>Year Of Experience</p>
+
+
+							</div>
+							<div class="box2">
+								<h4>430+</h4>
+								<p>Happy Clients</p>
+
+							</div>
+
+						</div>
+
+						<div class="divsecond">
+
+							<div class="box3">
+								<h4>100+</h4>
+								<p>Project Comeplete</p>
+
+							</div>
+
+							<div class="box4">
+								<h4>12+</h4>
+								<p>Awards Won</p>
+							</div>
+
+						</div>
+
+					</div>
+					<!-- my box part -->
+				</div>
+				<!-- closed for next content block about -->
+
+			</div>
+			<!-- nextpart cloed -->
+
+			<div class="thirdpart">
+				<h1>My <span>Education</span></h1>
+				<div class="mybox1">
+
+					<!-- first box part -->
+					<div class="boxpart">
+						<div class="box1">
+							<span>2016</span>
+							<h2>Front End Developer</h2>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, possimus molestiae.
+								Dolore laudantium ea quia itaque magnam veniam odio et commodi tempore! Atque qui culpa,
+								magni quis ab nam placeat.</p>
+						</div>
+						<div class="box1">
+							<span>2017</span>
+							<h2>Front End Developer</h2>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, possimus molestiae.
+								Dolore laudantium ea quia itaque magnam veniam odio et commodi tempore! Atque qui culpa,
+								magni quis ab nam placeat.</p>
+						</div>
+					</div>
+
+					<div class="boxpart">
+						<div class="box1">
+							<span>2018</span>
+							<h2>Front End Developer</h2>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, possimus molestiae.
+								Dolore laudantium ea quia itaque magnam veniam odio et commodi tempore! Atque qui culpa,
+								magni quis ab nam placeat.</p>
+						</div>
+						<div class="box1">
+							<span>2019</span>
+							<h2>Front End Developer</h2>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, possimus molestiae.
+								Dolore laudantium ea quia itaque magnam veniam odio et commodi tempore! Atque qui culpa,
+								magni quis ab nam placeat.</p>
+						</div>
+					</div>
+
+
+					<div class="boxpart">
+						<div class="box1">
+							<span>2020</span>
+							<h2>Front End Developer</h2>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, possimus molestiae.
+								Dolore laudantium ea quia itaque magnam veniam odio et commodi tempore! Atque qui culpa,
+								magni quis ab nam placeat.</p>
+						</div>
+
+						<div class="box1">
+							<span>2021</span>
+							<h2>Front End Developer</h2>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias, possimus molestiae.
+								Dolore laudantium ea quia itaque magnam veniam odio et commodi tempore! Atque qui culpa,
+								magni quis ab nam placeat.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- my portfoliyo -->
+
+			<div class="portfolio">
+				<h1>My <span>Portfolio</span></h1>
+				<div class="myportfolio">
+					<div class="myimg">
+						<div class="mydiv">
+							<img src="view.jpg" alt="my image">
+						</div>
+						<div class="mydiv">
+							<img src="view.jpg" alt="my image">
+						</div>
+					</div>
+
+					<div class="myimg">
+						<div class="mydiv">
+							<img src="view.jpg" alt="my image">
+						</div>
+						<div class="mydiv">
+							<img src="view.jpg" alt="my image">
+						</div>
+					</div>
+
+					<div class="myimg">
+						<div class="mydiv">
+							<img src="view.jpg" alt="my image">
+						</div>
+						<div class="mydiv">
+							<img src="view.jpg" alt="my image">
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- mycontact -->
+			<div class="contact">
+				<h1><span>Cotact</span> Me</h1>
+				<div class="mycontact">
+					<div class="mycon">
+						<h2>CONTACT INFO</h2>
+						<ul>
+							<li>bbrobishal@gmail.com</li>
+							<li>98234057829</li>
+							<li>98419726998</li>
+							<li>Kathmandu,Nepali 44600</li>
+
+						</ul>
+					</div>
+					<div class="mycon1">
+						<form method="POST" action="">
+							Name : <input type="text" name="name" plceholder="Name"><br />
+							Email : <input type="email" name="email" plceholder="email"><br />
+							Project : <input type="project" name="name" plceholder="projectname"><br />
+							Textarea : <textarea name="" cols="25" rows="10"></textarea>
+							<input type="submit" name="submit" value="Send">
+						</form>
+					</div>
+				</div>
+
+			</div>
+			<!-- my contact closed -->
+		</div>
+		<!-- content closed -->
+	</div>
+
+</div>
+
+<script>
+
+	function openNav() {
+		document.getElementById('mysidebar').style.width = "30%";
+
+	}
+
+	function closeNav() {
+		document.getElementById('mysidebar').style.width = "0%";
+	}
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>
